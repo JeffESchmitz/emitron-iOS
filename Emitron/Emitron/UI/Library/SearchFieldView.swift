@@ -100,7 +100,7 @@ struct SearchFieldView_Previews: PreviewProvider {
     }
   }
   
-  static var searchFields: some View {
+  private static var searchFields: some View {
     VStack(spacing: 20) {
       SearchFieldView(searchString: "")
       SearchFieldView(searchString: "Hello")
