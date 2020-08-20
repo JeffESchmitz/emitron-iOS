@@ -50,7 +50,7 @@ extension ReloadView: View {
       Spacer()
       
       Image("emojiCrying")
-        .padding([.bottom], 30)
+        .padding(.bottom, 30)
       
       Text("Something went wrong.")
         .font(.uiTitle2)
