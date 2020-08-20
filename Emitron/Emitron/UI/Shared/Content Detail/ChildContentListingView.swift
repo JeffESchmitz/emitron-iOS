@@ -62,7 +62,6 @@ private extension ChildContentListingView {
         
         if childContentsViewModel.groups.count > 1 {
           ForEach(childContentsViewModel.groups, id: \.id) { group in
-            
             Section(header: CourseHeaderView(name: group.name)) {
               episodeListing(data: childContentsViewModel.contents(for: group.id))
             }
@@ -98,10 +97,10 @@ private extension ChildContentListingView {
   func episodeListing(data: [ChildContentListDisplayable]) -> some View {
     let onlyContentWithVideoID = data
       .filter { $0.videoIdentifier != nil }
-      .sorted(by: {
+      .sorted(by:) {
         guard let lhs = $0.ordinal, let rhs = $1.ordinal else { return true }
         return lhs < rhs
-      })
+      }
     
     return ForEach(onlyContentWithVideoID, id: \.id) { model in
       episodeRow(model: model)
